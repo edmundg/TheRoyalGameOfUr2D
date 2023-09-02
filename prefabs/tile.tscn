@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://gv18xh8gs7fp"]
+
+[ext_resource type="Material" uid="uid://dqj3hj0ijbq4d" path="res://materials/tile.tres" id="1_4mkdr"]
+[ext_resource type="Script" path="res://scripts/tile.gd" id="1_864sf"]
+
+[node name="Tile" type="Node3D"]
+script = ExtResource("1_864sf")
+
+[node name="Cube-Visual" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material = ExtResource("1_4mkdr")

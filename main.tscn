@@ -1,0 +1,203 @@
+[gd_scene load_steps=12 format=3 uid="uid://q183i7rh4eqo"]
+
+[ext_resource type="PackedScene" uid="uid://gv18xh8gs7fp" path="res://prefabs/tile.tscn" id="1_dgnod"]
+[ext_resource type="Script" path="res://scripts/DiceRoller.gd" id="2_kl5un"]
+[ext_resource type="Texture2D" uid="uid://d0dwhsetdyjww" path="res://textures/Tetra_OneA.png" id="3_l2c4r"]
+[ext_resource type="Texture2D" uid="uid://dy0fuhpjipmrh" path="res://textures/Tetra_OneB.png" id="4_nqg6r"]
+[ext_resource type="Texture2D" uid="uid://dgb1udkf6wyp5" path="res://textures/Tetra_OneC.png" id="5_usiv7"]
+[ext_resource type="Texture2D" uid="uid://cs2vbbp4tsdj3" path="res://textures/Tetra_ZeroA.png" id="6_qxtkl"]
+[ext_resource type="Texture2D" uid="uid://b37ypf0hlpicn" path="res://textures/Tetra_ZeroB.png" id="7_xpnjf"]
+[ext_resource type="Texture2D" uid="uid://b4k26jx4emnm" path="res://textures/Tetra_ZeroC.png" id="8_b0p34"]
+[ext_resource type="LabelSettings" uid="uid://kmymvrn3orop" path="res://prefabs/textlabel.tres" id="9_2ufw1"]
+[ext_resource type="Script" path="res://scripts/DiceTotalDisplay.gd" id="10_atld7"]
+[ext_resource type="PackedScene" uid="uid://bsyvkxt00ei2b" path="res://prefabs/player_1_stone.tscn" id="10_sxcx7"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.715412, 0.698702, 0, -0.698702, 0.715412, 0, 2.23944, 4.41846)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.475808, 0.879549, 0, -0.879549, 0.475808, -0.0665703, 6.11653, 2.42249)
+
+[node name="The Board" type="Node" parent="."]
+
+[node name="Player1-Start1" parent="The Board" node_paths=PackedStringArray("next_tiles") instance=ExtResource("1_dgnod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+next_tiles = [NodePath("../Player1-Start2")]
+
+[node name="Player1-Start2" parent="The Board" node_paths=PackedStringArray("next_tiles") instance=ExtResource("1_dgnod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+next_tiles = [NodePath("../Player1-Start3")]
+
+[node name="Player1-Start3" parent="The Board" node_paths=PackedStringArray("next_tiles") instance=ExtResource("1_dgnod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1)
+next_tiles = [NodePath("../Player1-Start4")]
+
+[node name="Player1-Start4" parent="The Board" node_paths=PackedStringArray("next_tiles") instance=ExtResource("1_dgnod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 1)
+next_tiles = [NodePath("../Middle1")]
+
+[node name="Player2-Start1" parent="The Board" node_paths=PackedStringArray("next_tiles") instance=ExtResource("1_dgnod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+next_tiles = [NodePath("../Player1-Start2")]
+
+[node name="Player2-Start2" parent="The Board" node_paths=PackedStringArray("next_tiles") instance=ExtResource("1_dgnod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+next_tiles = [NodePath("../Player2-Start3")]
+
+[node name="Player2-Start3" parent="The Board" node_paths=PackedStringArray("next_tiles") instance=ExtResource("1_dgnod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
+next_tiles = [NodePath("../Player2-Start4")]
+
+[node name="Player2-Start4" parent="The Board" node_paths=PackedStringArray("next_tiles") instance=ExtResource("1_dgnod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1)
+next_tiles = [NodePath("../Middle1")]
+
+[node name="Middle1" parent="The Board" node_paths=PackedStringArray("next_tiles") instance=ExtResource("1_dgnod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+next_tiles = [NodePath("../Middle2")]
+
+[node name="Middle2" parent="The Board" node_paths=PackedStringArray("next_tiles") instance=ExtResource("1_dgnod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+next_tiles = [NodePath("../Middle3")]
+
+[node name="Middle3" parent="The Board" node_paths=PackedStringArray("next_tiles") instance=ExtResource("1_dgnod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+next_tiles = [NodePath("../Middle4")]
+
+[node name="Middle4" parent="The Board" node_paths=PackedStringArray("next_tiles") instance=ExtResource("1_dgnod")]
+next_tiles = [NodePath("../Middle5")]
+
+[node name="Middle5" parent="The Board" node_paths=PackedStringArray("next_tiles") instance=ExtResource("1_dgnod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+next_tiles = [NodePath("../Middle6")]
+
+[node name="Middle6" parent="The Board" node_paths=PackedStringArray("next_tiles") instance=ExtResource("1_dgnod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+next_tiles = [NodePath("../Middle7")]
+
+[node name="Middle7" parent="The Board" node_paths=PackedStringArray("next_tiles") instance=ExtResource("1_dgnod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+next_tiles = [NodePath("../Middle8")]
+
+[node name="Middle8" parent="The Board" node_paths=PackedStringArray("next_tiles") instance=ExtResource("1_dgnod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+next_tiles = [NodePath("../Player1-End1"), NodePath("../Player2-End1")]
+
+[node name="Player1-End1" parent="The Board" node_paths=PackedStringArray("next_tiles") instance=ExtResource("1_dgnod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1)
+next_tiles = [NodePath("../Player1-End2")]
+
+[node name="Player1-End2" parent="The Board" instance=ExtResource("1_dgnod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1)
+
+[node name="Player2-End1" parent="The Board" node_paths=PackedStringArray("next_tiles") instance=ExtResource("1_dgnod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1)
+next_tiles = [NodePath("../Player2-End2")]
+
+[node name="Player2-End2" parent="The Board" instance=ExtResource("1_dgnod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -1)
+
+[node name="Plane" type="CSGBox3D" parent="."]
+transform = Transform3D(19.8934, 0, 0, 0, 0.0995367, 0, 0, 0, 19.8934, 0, -1.06627, 0)
+
+[node name="UI" type="Node" parent="."]
+
+[node name="Button-RollDice" type="Button" parent="UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 109.0
+grow_vertical = 0
+text = "Roll the Dice!"
+
+[node name="Dice Roller" type="GridContainer" parent="UI"]
+layout_direction = 2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 109.0
+offset_top = -96.0
+offset_right = 633.0
+offset_bottom = 32.0
+grow_vertical = 0
+scale = Vector2(0.75, 0.75)
+size_flags_stretch_ratio = 0.0
+columns = 4
+script = ExtResource("2_kl5un")
+dice_image_zero = Array[Texture2D]([ExtResource("6_qxtkl"), ExtResource("7_xpnjf"), ExtResource("8_b0p34")])
+dice_image_one = Array[Texture2D]([ExtResource("3_l2c4r"), ExtResource("4_nqg6r"), ExtResource("5_usiv7")])
+
+[node name="TextureRect" type="TextureRect" parent="UI/Dice Roller"]
+layout_mode = 2
+texture = ExtResource("8_b0p34")
+
+[node name="TextureRect2" type="TextureRect" parent="UI/Dice Roller"]
+layout_mode = 2
+texture = ExtResource("8_b0p34")
+
+[node name="TextureRect3" type="TextureRect" parent="UI/Dice Roller"]
+layout_mode = 2
+texture = ExtResource("8_b0p34")
+
+[node name="TextureRect4" type="TextureRect" parent="UI/Dice Roller"]
+layout_mode = 2
+texture = ExtResource("8_b0p34")
+
+[node name="Dice Total" type="Label" parent="UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 503.0
+offset_top = -71.0
+offset_right = 545.0
+offset_bottom = -26.0
+grow_vertical = 0
+text = "= 4"
+label_settings = ExtResource("9_2ufw1")
+script = ExtResource("10_atld7")
+
+[node name="Label" type="Label" parent="UI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -292.0
+offset_top = -45.0
+offset_right = -7.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Current Player: One"
+label_settings = ExtResource("9_2ufw1")
+
+[node name="Player1-StoneStorage" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2.76)
+
+[node name="Player1-Stone" parent="Player1-StoneStorage" node_paths=PackedStringArray("starting_tile") instance=ExtResource("10_sxcx7")]
+transform = Transform3D(0.75, 0, 0, 0, 0.25, 0, 0, 0, 0.75, -1.27999, 0, 6.00737)
+starting_tile = NodePath("../../The Board/Player1-Start1")
+
+[node name="Player1-Stone2" parent="Player1-StoneStorage" node_paths=PackedStringArray("starting_tile") instance=ExtResource("10_sxcx7")]
+transform = Transform3D(0.75, 0, 0, 0, 0.25, 0, 0, 0, 0.75, -2.27931, 0, 6.157)
+starting_tile = NodePath("../../The Board/Player1-Start1")
+
+[node name="Player1-Stone3" parent="Player1-StoneStorage" node_paths=PackedStringArray("starting_tile") instance=ExtResource("10_sxcx7")]
+transform = Transform3D(0.75, 0, 0, 0, 0.25, 0, 0, 0, 0.75, -3.32332, 0, 6.00737)
+starting_tile = NodePath("../../The Board/Player1-Start1")
+
+[node name="Player1-Stone4" parent="Player1-StoneStorage" node_paths=PackedStringArray("starting_tile") instance=ExtResource("10_sxcx7")]
+transform = Transform3D(0.75, 0, 0, 0, 0.25, 0, 0, 0, 0.75, -1.35683, 0, 5.11734)
+starting_tile = NodePath("../../The Board/Player1-Start1")
+
+[node name="Player1-Stone5" parent="Player1-StoneStorage" node_paths=PackedStringArray("starting_tile") instance=ExtResource("10_sxcx7")]
+transform = Transform3D(0.75, 0, 0, 0, 0.25, 0, 0, 0, 0.75, -2.41932, 0, 5.16787)
+starting_tile = NodePath("../../The Board/Player1-Start1")
+
+[node name="Player1-Stone6" parent="Player1-StoneStorage" node_paths=PackedStringArray("starting_tile") instance=ExtResource("10_sxcx7")]
+transform = Transform3D(0.75, 0, 0, 0, 0.25, 0, 0, 0, 0.75, -3.38904, 0, 5.05759)
+starting_tile = NodePath("../../The Board/Player1-Start1")
+
+[connection signal="pressed" from="UI/Button-RollDice" to="UI/Dice Roller" method="roll_the_dice"]

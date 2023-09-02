@@ -1,0 +1,12 @@
+res://scripts/tile.gd
+res://scripts/DiceTotalDisplay.gd
+res://main.tscn
+res://materials/tile.tres
+res://prefabs/textlabel.tres
+res://materials/player1-stone.tres
+res://materials/player2-stone.tres
+res://prefabs/tile.tscn
+res://prefabs/player_1_stone.tscn
+res://prefabs/player_2_stone.tscn
+res://scripts/DiceRoller.gd
+res://scripts/PlayerStone.gd
